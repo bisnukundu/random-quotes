@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best Quotes</title>
+    <title>Random Quotes</title>
     <style>
         body { font-family: Arial, sans-serif; background: #f4f4f9; margin: 0; padding: 0; }
-        .container { max-width: 600px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 32px; }
+        .container { max-width: 700px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 32px; }
         h1 { text-align: center; color: #333; }
         ul { list-style: none; padding: 0; }
         li { background: #e3eafc; margin: 16px 0; padding: 18px 24px; border-radius: 6px; font-size: 1.1em; color: #222; }
@@ -14,16 +14,55 @@
 </head>
 <body>
     <div class="container">
-        <h1>Best Quotes</h1>
-        <ul>
-            <li>"The best way to get started is to quit talking and begin doing." – Walt Disney</li>
-            <li>"Success is not the key to happiness. Happiness is the key to success." – Albert Schweitzer</li>
-            <li>"Don’t watch the clock; do what it does. Keep going." – Sam Levenson</li>
-            <li>"The only limit to our realization of tomorrow is our doubts of today." – Franklin D. Roosevelt</li>
-            <li>"It always seems impossible until it’s done." – Nelson Mandela</li>
-            <li>"Believe you can and you’re halfway there." – Theodore Roosevelt</li>
-            <li>"Act as if what you do makes a difference. It does." – William James</li>
-        </ul>
+        <h1>Random Quotes</h1>
+        <ul id="quotes-list"></ul>
     </div>
+    <script>
+        const quotes = [
+            "The best way to get started is to quit talking and begin doing. – Walt Disney",
+            "Success is not the key to happiness. Happiness is the key to success. – Albert Schweitzer",
+            "Don’t watch the clock; do what it does. Keep going. – Sam Levenson",
+            "The only limit to our realization of tomorrow is our doubts of today. – Franklin D. Roosevelt",
+            "It always seems impossible until it’s done. – Nelson Mandela",
+            "Believe you can and you’re halfway there. – Theodore Roosevelt",
+            "Act as if what you do makes a difference. It does. – William James",
+            "You are never too old to set another goal or to dream a new dream. – C.S. Lewis",
+            "What you get by achieving your goals is not as important as what you become by achieving your goals. – Zig Ziglar",
+            "Dream big and dare to fail. – Norman Vaughan",
+            "Opportunities don't happen, you create them. – Chris Grosser",
+            "Don't be afraid to give up the good to go for the great. – John D. Rockefeller",
+            "I find that the harder I work, the more luck I seem to have. – Thomas Jefferson",
+            "Success is walking from failure to failure with no loss of enthusiasm. – Winston Churchill",
+            "If you are not willing to risk the usual, you will have to settle for the ordinary. – Jim Rohn",
+            "The only place where success comes before work is in the dictionary. – Vidal Sassoon",
+            "The future belongs to those who believe in the beauty of their dreams. – Eleanor Roosevelt",
+            "Don’t be pushed around by the fears in your mind. Be led by the dreams in your heart. – Roy T. Bennett",
+            "Everything you’ve ever wanted is on the other side of fear. – George Addair",
+            "Hardships often prepare ordinary people for an extraordinary destiny. – C.S. Lewis",
+            "It does not matter how slowly you go as long as you do not stop. – Confucius",
+            "Great things never come from comfort zones.",
+            "Push yourself, because no one else is going to do it for you.",
+            "Sometimes later becomes never. Do it now.",
+            "Success doesn’t just find you. You have to go out and get it.",
+            "The harder you work for something, the greater you’ll feel when you achieve it.",
+            "Dream it. Wish it. Do it.",
+            "Don’t stop when you’re tired. Stop when you’re done.",
+            "Wake up with determination. Go to bed with satisfaction.",
+            "Do something today that your future self will thank you for."
+        ];
+
+        function getRandomQuotes(arr, n) {
+            const shuffled = arr.slice().sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, n);
+        }
+
+        const randomQuotes = getRandomQuotes(quotes, 20);
+        const ul = document.getElementById('quotes-list');
+        randomQuotes.forEach(q => {
+            const li = document.createElement('li');
+            li.textContent = q;
+            ul.appendChild(li);
+        });
+    </script>
 </body>
 </html>
